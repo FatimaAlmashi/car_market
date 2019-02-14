@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Car Detail</title>
-</head>
-<body>
-		<h1>
-			{{car.make}} - {{car.model}}
-			<small>
-				{{car.year}}
-			</small>
-		</h1>
-		<hr>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title  %}
+	Car Detail
+{% endblock title %}
+
+{% block content %}
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col_height col-12 col-sm-6 col-md-4">
+			<h4 class="card-text">{{car.make}}</h4></div>
+		<div class="col_height col-12 col-sm-6 col-md-4">
+			<h4 class="card-text">{{car.model}}</h4></div>
+		<div class="col_height col-12 col-sm-6 col-md-4">
+			<h4 class="card-text">{{car.year}}</h4></div>
+	</div>
+</div>
+<div class="btn-group my-3" role="group" aria-label="Button group with nested dropdown">
+	<a href="{% url 'car-update' car.id %}"><button type="button" class="btn btn-secondary">Update</button></a>
+	<a href="{% url 'car-delete' car.id %}"><button type="button" class="btn btn-secondary">Delete</button></a>
+</div>
+{% endblock content %}
+
