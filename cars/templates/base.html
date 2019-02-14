@@ -16,6 +16,14 @@
 		<a class="nav-link active" href="{% url 'car-create' %}"><h1>Add a car</h1></a>
 	  	</li>
 	</ul>
+
+	{% if messages %}
+	<ul class="messages">
+	    {% for message in messages %}
+	    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	    {% endfor %}
+	</ul>
+	{% endif %}
 	{% block content %}
 
 	{% endblock content%}
